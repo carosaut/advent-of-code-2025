@@ -18,37 +18,35 @@ def is_div_by_5(n):
 def is_div_by_7(n):
     return n % 7 == 0
 
-# def get_ids(lst_indexes):
-#     list_id_ranges = []
-#     for index, element in enumerate(lst_indexes):
-#         if index == 0:
-#             first_start = 0
-#             first_end = int(element)
-#             first_range = input[first_start:first_end]
-#             list_id_ranges.append(first_range)
+def get_ids(lst_indexes):
+    list_id_ranges = []
+    for index, element in enumerate(lst_indexes):
+        if index == 0:
+            first_start = 0
+            first_end = int(element)
+            first_range = input[first_start:first_end]
+            list_id_ranges.append(first_range)
 
-#         elif index == len(lst_indexes) - 1:
-#             start = lst_indexes[index-1] + 1
-#             id_range = input[start:]
-#             list_id_ranges.extend(id_range.split(','))
+        elif index == len(lst_indexes) - 1:
+            start = lst_indexes[index-1] + 1
+            id_range = input[start:]
+            list_id_ranges.extend(id_range.split(','))
 
-#         else:
-#             start = lst_indexes[index-1] + 1
-#             end = element
-#             id_range = input[start:end]
-#             list_id_ranges.append(id_range)
-#     return list_id_ranges
+        else:
+            start = lst_indexes[index-1] + 1
+            end = element
+            id_range = input[start:end]
+            list_id_ranges.append(id_range)
+    return list_id_ranges
 
-# list_id_ranges = get_ids(lst_indexes)
-
-list_id_ranges = input.split(',')
+list_id_ranges = get_ids(lst_indexes)
 
 def get_invalid_ids_1(list_id_ranges):
     invalid_ids = []
     for id_range in list_id_ranges:
         start_end = id_range.split('-')
         start = int(start_end[0])
-        end = int(start_end[1]) +1
+        end = int(start_end[1]) + 1
         for num in range(start, end):
             str_num = str(num)
             lenght_num = len(str_num)
